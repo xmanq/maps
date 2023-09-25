@@ -1,0 +1,195 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "H2HService API",
+    "version": "1.0.0",
+    "description": "H2HService REST API\n"
+  },
+  "paths": {
+    "/h2h/hierarchy/schemas": {
+      "get": {
+        "summary": "Lists all the available schemas",
+        "tags": [
+          "H2HService"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/profiles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/h2h/hierarchy/schemas/paged": {
+      "get": {
+        "summary": "Paginated list of all the available schemas ",
+        "tags": [
+          "H2HService"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/profiles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/h2h/hierarchy/{herarchyId}/schemas": {
+      "get": {
+        "summary": "Retrives JSON schema by Id",
+        "tags": [
+          "H2HService"
+        ],
+        "description": "Get  the schemas by Id",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/profiles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/h2h/hierarchy/{herarchyId}/schemas/roots": {
+      "get": {
+        "200": {
+          "description": "Get all the Roots of the schema",
+          "content": {
+            "application/json": {
+              "example": "List of root elements"
+            }
+          }
+        },
+        "summary": "Retrives all the roots for a schema",
+        "tags": [
+          "H2HService"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": "Sample data"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/h2h/hierarchy/{assetId}/mappings/": {
+      "post": {
+        "summary": "Creates a new  mapping",
+        "tags": [
+          "H2HService"
+        ],
+        "operationId": "list mappings",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": "mapping created"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "updates the mapping with new source/target",
+        "tags": [
+          "H2HService"
+        ],
+        "operationId": "put mappings",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": "mapping created"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Retrives Single mapping by assetId",
+        "tags": [
+          "H2HService"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "assetId",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrive the mappings",
+            "content": {
+              "application/json": {
+                "example": "Returns the mappings by assetId"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes  mappings for an asset",
+        "tags": [
+          "H2HService"
+        ],
+        "operationId": "delete mappings",
+        "description": "Deletes single mapping",
+        "responses": {
+          "200": {
+            "description": "Delete the mappings",
+            "content": {
+              "application/json": {
+                "example": "Deletes the mapping for an asset"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "profiles": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
